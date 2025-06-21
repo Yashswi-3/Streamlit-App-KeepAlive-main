@@ -1,0 +1,21 @@
+name: Keep Streamlit Apps Alive
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  ping-apps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send request to yashswi-3-ai-resume-builder.streamlit.app
+        run: curl -s -o /dev/null -w "%{http_code}\n" https://yashswi-3-ai-resume-builder.streamlit.app/
+      - name: Send request to nfezs2nnn6jrwngllfkl2c.streamlit.app
+        run: curl -s -o /dev/null -w "%{http_code}\n" https://nfezs2nnn6jrwngllfkl2c.streamlit.app/
+      - name: Send request to yashswi-3-khollpoll-campus-hub-app-gnr2nq.streamlit.app
+        run: curl -s -o /dev/null -w "%{http_code}\n" https://yashswi-3-khollpoll-campus-hub-app-gnr2nq.streamlit.app/
+      - name: Send request to suraksha-dristi.streamlit.app
+        run: curl -s -o /dev/null -w "%{http_code}\n" https://suraksha-dristi.streamlit.app/
